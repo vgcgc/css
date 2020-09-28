@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array03_1.html</title>
+    <script>
+        //배열 : 자바와는 다르게 여러 타입(자료형)의 값을 저장할 수 있는 자료구조(메모리)
+        //그리고 배열의 크기가 불변이 아니다
+        //선언방법 : var 배열명 = new Array(배열크기);
+        //배열 선언 방법1
+        var array = new Array(5);
+        document.write('배열 크기:'+array.length);
+        document.write('<br/>array의 자료형:'+typeof array+', array:'+array);
+        console.log(array);
+        document.write('<h2>배열 초기화 전</h2>');
+        document.write('<ul>');
+            for(var i=0;i<array.length;i++){
+                document.write('<li>array['+i+']='+array[i]+'</li>')
+            }
+        document.write('</ul>');
+        //초기화
+        array[0]=100;
+        array[1]=new Date();
+        array[2]=3.14;
+        array[3]=true;
+        array[4]='자바스크립트';
+        //배열의 크기 가변적
+        array[5]=100;//방이 새롭게 추가된다
+        array.push(200);
+        array.push(300);
+        array.push(400);
+        array.push(500);
+        document.write('메모리 추가 후 배열 크기:'+array.length);
+        document.write('<h2>배열 초기화 후</h2>');
+        document.write('<ul>');
+            for(var i=0;i<array.length;i++){
+                document.write('<li>자료형:'+typeof(array[i])+', array['+i+']='+array[i]+'</li>')
+            }
+        document.write('</ul>');
+        //배열 선언 방법2
+        //선언과 동시에 초기화
+        var initArray = new Array('홍길동',20,'가산동', new Date());
+        document.write('<h2>배열 선언과 동시에 초기화(new 사용)</h2>');
+        document.write('<ul>');
+            for(var i=0;i<initArray.length;i++){
+                document.write('<li>initArray:initArray['+i+']='+initArray[i]+'</li>')
+            }
+        document.write('</ul>');
+        //배열 선언 방법3
+        var initNoNew = ['한소인',10,'자바전문과정',{owner:'가길동',est:1970}];
+        document.write('자료형:'+typeof(initNoNew));
+        document.write('<h2>배열 선언과 동시에 초기화(new 연산자 미사용)</h2>');
+        document.write('<ul>');
+            for(var i=0;i<initNoNew.length;i++){
+                console.log(typeof initNoNew[i] == 'object');
+                if(typeof initNoNew[i] != 'object')
+                    document.write('<li>initNoNew:initNoNew['+i+']='+initNoNew[i]+'</li>')
+                else
+                    document.write('<li>initNoNew['+i+']=대표자:'+initNoNew[i].owner+', 설립일:'+initNoNew[i].est+'</li>');
+            }
+        document.write('</ul>');
+         //배열 선언 방법4 배열 크기 미지정
+         document.write('<h2>배열 선언(new사용, 크기 미 지정)</h2>');
+        var nosize = new Array();
+        document.write('배열 크기:'+nosize.length);
+        nosize[4] = true;
+        nosize[2] = 100;
+        nosize[9] = '가길동';
+        document.write('<br/>배열 크기:'+nosize.length);
+        document.write('<ul>');
+            for(var i=0;i<nosize.length;i++){
+                document.write('<li>nosize:nosize['+i+']='+nosize[i]+'</li>')
+            }
+        document.write('</ul>');
+
+        function getAverage(){
+            var text = document.getElementById('students');
+            alert(text.value);
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend> 학생의 평균 구하기</legend>
+        학생 수 입력 : <input type="text" id="students"/>
+        <button onclick='getAverage()'>평균 구하기</button>
+    </fieldset>
+    <script>
+        //배열 선언
+        var score = [];//new Array()와 같다
+        
+    </script>
+</body>
+</html>
